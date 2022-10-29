@@ -1,5 +1,5 @@
-from django.apps import AppConfig
+# from django.apps import AppConfig
 
 
-class EndpointsConfig(AppConfig):
-    name = 'endpoints'
+# class EndpointsConfig(AppConfig):
+#     name = 'endpoints'
