@@ -30,19 +30,20 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    # add django rest framework
-    'rest_framework', 
-    
-    # apps
-    'apps.endpoints',
-    
+INSTALLED_APPS = [    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',   
+    'django.contrib.staticfiles',  
+    
+    # add django rest framework
+    'rest_framework', 
+    
+    # apps
+    'apps.endpoints',
+    'apps.ml' ,
 ]
 
 MIDDLEWARE = [
