@@ -4,6 +4,8 @@ from apps.endpoints.models import Endpoint
 from apps.endpoints.models import MLAlgorithm
 from apps.endpoints.models import MLAlgorithmStatus
 from apps.endpoints.models import MLRequest
+from apps.endpoints.models import ABTest
+
 
 class EndpointSerializer(serializers.ModelSerializer):
     class Meta:
@@ -54,3 +56,28 @@ class MLRequestSerializer(serializers.ModelSerializer):
             "parent_mlalgorithm",
         )
 
+# please add at the end of file backend/server/apps/endpoints/serializers.py
+class ABTestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ABTest
+        '''
+        Please notice, that id, created_at, ended_at and summary fields are marked as read-only. 
+        We will allow users to create A/B tests with REST API 
+        the read-only fields with be set with server code.
+        '''
+        read_only_fields = (
+            "id",
+            "ended_at",
+            "created_at",
+            "summary",
+        )
+        fields = (
+            "id",
+            "title",
+            "created_by",
+            "created_at",
+            "ended_at",
+            "summary",
+            "parent_mlalgorithm_1",
+            "parent_mlalgorithm_2",
+            )
